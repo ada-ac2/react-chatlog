@@ -18,7 +18,7 @@ const ChatEntry = ({id, sender, body, timeStamp, liked, changeLikes}) => {
         <p>{body}</p>
         <p className="entry-time">
           <TimeStamp time = {timeStamp}/></p>
-        <button className="like" onClick={toggleHeart}>{heart? <span>💚</span> : <span>🤍</span>}</button>
+        <button className="like" onClick={toggleHeart}>{heart? '❤️' : '🤍'}</button>
       </section>
     </div>
   );
