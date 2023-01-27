@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
-const ChatEntry = ({id, sender, body, timeStamp, liked}) => {
-  const heart = liked? <span>💚</span> : <span>🤍</span>;
+const ChatEntry = ({id, sender, body, timeStamp, liked, changeLikes}) => {
+  const [heart, setHeart]  = useState(liked);
+
+  const toggleHeart = () => {
+    setHeart(!heart);
+    changeLikes(heart);
+  }
 
   return (
     <div className="chat-entry local">
@@ -13,7 +18,7 @@ const ChatEntry = ({id, sender, body, timeStamp, liked}) => {
         <p>{body}</p>
         <p className="entry-time">
           <TimeStamp time = {timeStamp}/></p>
-        <button className="like">{heart}</button>
+        <button className="like" onClick={toggleHeart}>{heart? <span>💚</span> : <span>🤍</span>}</button>
       </section>
     </div>
   );
