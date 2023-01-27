@@ -17,7 +17,7 @@ const App = () => {
           <ChatEntry 
           sender={entry.sender}
           body={entry.body}
-          timeStamp={entry.body}
+          timeStamp={entry.timeStamp}
           />
         }
         </section>
