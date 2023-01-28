@@ -1,9 +1,8 @@
 import React from 'react';
 import './App.css';
-import ChatEntry from './components/ChatEntry.js';
+import ChatLog from './components/ChatLog.js';
 import messageData from './data/messages.json';
 
-const entry = messageData[0]
 
 const App = () => {
   return (
@@ -14,10 +13,7 @@ const App = () => {
       <main>
         <section className="chat-entry local">
         {
-          <ChatEntry 
-          sender={entry.sender}
-          body={entry.body}
-          timeStamp={entry.timeStamp}
+          <ChatLog entries={messageData}
           />
         }
         </section>
