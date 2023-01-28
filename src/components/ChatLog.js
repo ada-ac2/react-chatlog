@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react'; 
 import ChatEntry from './ChatEntry';
-import chatMessages from './data/messages.json';
 
-const ChatLog = (props) => {
-    const messages = chatMessages.map((message) => {
+
+const ChatLog = ({entries}) => {
+    const messages = entries.map((message) => {
         return(
             <section key = {message.id}>
                 <ChatEntry sender = {message.sender}
@@ -13,4 +13,8 @@ const ChatLog = (props) => {
             </section>
         );
     });
-}
+
+    return(messages)
+};
+
+export default ChatLog
