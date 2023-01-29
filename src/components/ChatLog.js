@@ -12,6 +12,7 @@ const ChatLog = (props) => {
         body={entry.body}
         timeStamp={entry.timeStamp}
         liked={entry.liked}
+        onUpdate={props.onUpdateChatEntry}
         />);
       });
     return(
