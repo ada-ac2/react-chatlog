@@ -8,6 +8,9 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Chat Log Application</h1>
+        <section>
+          <span className="widget">❤️s</span>
+        </section>
       </header>
       <main>
         <div>{<ChatLog entries={chatMessages} />}</div>

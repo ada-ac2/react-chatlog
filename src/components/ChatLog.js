@@ -10,8 +10,8 @@ const ChatLog = ({ entries }) => {
       if (entry.liked) {
         total++;
       }
-      return total;
     }
+    return total;
   };
 
   const getChatLog = (entries) => {
