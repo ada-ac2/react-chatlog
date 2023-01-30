@@ -9,12 +9,10 @@ const ChatEntry = ({id, sender, body, timeStamp, onUpdateChat, liked}) => {
       sender,
       body, 
       timeStamp, 
-      liked : !liked,
-      onUpdateChat
+      liked : !liked
     })
   }
-
-  const heartStyle = liked ? '❤️' : '🤍'
+  const heartStyle = liked ? '❤️' : '🤍';
 
   return (
     <div className="chat-entry local">
