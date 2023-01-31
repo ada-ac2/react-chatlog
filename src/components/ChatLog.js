@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 import './ChatLog.css';
 
-const ChatLog = ({ chats }) => {
-  const getChatLogJSX = (chats) => {
-    return chats.map((chat) => {
+const ChatLog = ({ entries }) => {
+  const getChatLogJSX = (entries) => {
+    return entries.map((chat) => {
       return (
         <ChatEntry
           key={chat.id}
@@ -18,11 +18,11 @@ const ChatLog = ({ chats }) => {
       );
     });
   };
-  return <ul className="chat-log">{getChatLogJSX(chats)}</ul>;
+  return <ul className="chat-log">{getChatLogJSX(entries)}</ul>;
 };
 
 ChatLog.propTypes = {
-  chats: PropTypes.arrayOf(
+  entries: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       sender: PropTypes.string.isRequired,
