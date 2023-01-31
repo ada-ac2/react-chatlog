@@ -1,14 +1,18 @@
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
+import TimeStamp from './TimeStamp';
+import ChatGlobe from '../models/ChatGlobe';
 
 const ChatEntry = (props) => {
   return (
     <div className="chat-entry local">
-      <h2 className="entry-name">Replace with name of sender</h2>
+      <h2 className="entry-name">{props.chatGlobe.sender}</h2>
       <section className="entry-bubble">
-        <p>Replace with body of ChatEntry</p>
-        <p className="entry-time">Replace with TimeStamp component</p>
+        <p>{props.chatGlobe.body}</p>
+        <p className="entry-time">
+          <TimeStamp time={props.chatGlobe.timeStamp}></TimeStamp>
+        </p>
         <button className="like">🤍</button>
       </section>
     </div>
@@ -16,7 +20,7 @@ const ChatEntry = (props) => {
 };
 
 ChatEntry.propTypes = {
-  //Fill with correct proptypes
+  chatGlobe: PropTypes.instanceOf(ChatGlobe),
 };
 
 export default ChatEntry;
