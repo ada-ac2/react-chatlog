@@ -10,20 +10,23 @@ const App = () => {
   const sender2 = chatMessages[1].sender;
   const [chatEntries, setChatEntries] = useState(chatMessages);
   const [likes, setLikes] = useState(0);
-  const increaseLikes = () =>{
+
+  const incLikes = () =>{
     setLikes(likes + 1);
   };
-  const decreaseLikes = () =>{
+
+  const decLikes = () =>{
     setLikes(likes - 1);
   };
+
   const updateEntry = updatedEntry => {
     const entries = chatEntries.map(entry => {
       if (entry.id === updatedEntry.id) {
         if (updatedEntry.liked) {
-          increaseLikes();
+          incLikes();
         }
         else {
-          decreaseLikes();
+          decLikes();
         }
         return updatedEntry;
       } else {
@@ -38,13 +41,14 @@ const App = () => {
       <header>
         <h1>Chat between {sender1} and {sender2}</h1>
         <section>
-        <p className='widget'>{likes} ❤️'s</p>
+        <p className='widget'>{likes} ❤️s</p>
         </section>
       </header>
       <main>
         {<ChatLog 
           entries = {chatEntries}
           onUpdateEntry = {updateEntry}
+          sender1 = {sender1} // local sender
         />}
       </main>
     </div>

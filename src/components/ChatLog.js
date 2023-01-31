@@ -11,6 +11,7 @@ const ChatLog = (props) => {
             body = {entry.body} 
             isLiked = {entry.liked}
             onUpdate = {props.onUpdateEntry}
+            localSender = {props.sender1}
         />
         
     ));
@@ -22,7 +23,6 @@ const ChatLog = (props) => {
     );
 };
 
-
 ChatLog.propTypes = {
     entries: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
@@ -31,7 +31,8 @@ ChatLog.propTypes = {
         timeStamp: PropTypes.string.isRequired,
         liked: PropTypes.bool.isRequired
     })),
-    onUpdate: PropTypes.func.isRequired
+    onUpdate: PropTypes.func.isRequired,
+    sender1: PropTypes.func.isRequired
 };
 
 export default ChatLog;
