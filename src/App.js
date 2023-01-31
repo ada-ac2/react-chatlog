@@ -21,17 +21,7 @@ const App = () => {
         <h1 id="App h1">Chat between</h1>
       </header>
       <main id="App main">
-        <div>
-          {
-            <ChatEntry
-              id={chatData[0].id}
-              sender={chatData[0].sender}
-              body={chatData[0].body}
-              timeStamp={chatData[0].timeStamp}
-              liked={chatData[0].liked}
-            />
-          }
-        </div>
+        <div>{<ChatLog chats={chatData} />}</div>
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
       </main>
