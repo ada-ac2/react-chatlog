@@ -31,7 +31,7 @@ const ChatEntry = (props) => {
   );
 };
 
-ChatEntry.propTypes = {
+/* ChatEntry.propTypes = {
   id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
@@ -39,6 +39,6 @@ ChatEntry.propTypes = {
   isLiked: PropTypes.bool.isRequired,
   onUpdate: PropTypes.func.isRequired,
   localSender: PropTypes.string.isRequired
-};
+}; */
 
 export default ChatEntry;

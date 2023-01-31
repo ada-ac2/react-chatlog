@@ -23,7 +23,7 @@ const ChatLog = (props) => {
     );
 };
 
-ChatLog.propTypes = {
+/* ChatLog.propTypes = {
     entries: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
         sender: PropTypes.string.isRequired,
@@ -34,5 +34,5 @@ ChatLog.propTypes = {
     onUpdate: PropTypes.func.isRequired,
     sender1: PropTypes.func.isRequired
 };
-
+ */
 export default ChatLog;
