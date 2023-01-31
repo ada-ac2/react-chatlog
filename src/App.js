@@ -4,6 +4,8 @@ import ChatLog from './components/ChatLog';
 import chatMessages from './data/messages.json';
 
 const App = () => {
+  //let shallowCopyMessages = Object.assign({}, chatMessages);
+  //let deepCopyMessages = cloneDeep(chatMessages);
   const [chatEntryData, setChatData] = useState(chatMessages);
 
   const updateEntryData = (updatedMessage) => {
@@ -30,9 +32,8 @@ const App = () => {
   const totalLikes = calculateLikes(chatEntryData);
   const entries = (
     <ChatLog
-      messages={chatEntryData}
+      entries={chatEntryData}
       updateLikeStatus={updateEntryData}
-      setChatData={setChatData}
     ></ChatLog>
   );
 
@@ -41,7 +42,7 @@ const App = () => {
       <header>
         <h1>Chat Log Application</h1>
         <section>
-          <span className="widget">{totalLikes}❤️s</span>
+          <span className="widget">{totalLikes} ❤️s</span>
         </section>
       </header>
       <main>
