@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
-  const [liked, setLiked] = useState(props.liked);
-  const heartLiked = liked ? '❤️' : '🤍';
+  const updateLikes = () => {
+    const updateEntry = {
+      id: props.id,
+      sender: props.sender,
+      body: props.body,
+      timeStamp: props.timeStamp,
+      liked: !props.liked,
+    };
+    props.onUpdate(updateEntry);
+  };
+
+  const heartLiked = props.liked ? '❤️' : '🤍';
 
   const bubbleClass = (sender) =>
     sender === 'Vladimir' ? 'chat-entry local' : 'chat-entry remote';
@@ -18,7 +28,7 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           <TimeStamp time={props.timeStamp} />
         </p>
-        <button onClick={() => setLiked(!liked)}>{heartLiked}</button>
+        <button onClick={updateLikes}>{heartLiked}</button>
       </section>
     </div>
   );
@@ -29,6 +39,7 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   liked: PropTypes.bool,
+  onUpdate: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;
