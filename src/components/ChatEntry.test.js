@@ -2,14 +2,14 @@ import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import ChatEntry from './ChatEntry';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import ChatGlobe from '../models/ChatGlobe';
+import ChatMessage from '../models/ChatMessage';
 
 describe('Wave 01: ChatEntry', () => {
   beforeEach(() => {
     render(
       <ChatEntry
-        chatGlobe={
-          new ChatGlobe(
+        message={
+          new ChatMessage(
             1,
             'Joe Biden',
             "Get out by 8am.  I'll count the silverware",

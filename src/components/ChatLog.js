@@ -2,13 +2,16 @@ import React from 'react';
 import ChatEntry from './ChatEntry';
 import './ChatLog.css';
 import PropTypes from 'prop-types';
-import ChatGlobe from '../models/ChatGlobe';
+import ChatMessage from '../models/ChatMessage';
 
 const ChatLog = (props) => {
   const chatEntries = props.entries.map((entry) => {
     return (
       <li key={entry.id}>
-        <ChatEntry chatGlobe={entry}></ChatEntry>
+        <ChatEntry
+          message={entry}
+          onUpdateEntry={props.onUpdateChatEntry}
+        ></ChatEntry>
       </li>
     );
   });
@@ -21,7 +24,8 @@ const ChatLog = (props) => {
 };
 
 ChatLog.propTypes = {
-  entries: PropTypes.arrayOf(PropTypes.instanceOf(ChatGlobe)),
+  entries: PropTypes.arrayOf(PropTypes.instanceOf(ChatMessage)).isRequired,
+  onUpdateChatEntry: PropTypes.func.isRequired,
 };
 
 export default ChatLog;

@@ -1,4 +1,4 @@
-class ChatGlobe {
+class ChatMessage {
   constructor(id, sender, body, timeStamp, liked) {
     this.id = id;
     this.sender = sender;
@@ -8,4 +8,4 @@ class ChatGlobe {
   }
 }
 
-export default ChatGlobe;
+export default ChatMessage;
