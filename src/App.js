@@ -1,32 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-// import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
 import chatMessages from './data/messages.json';
 
-// const chatMessage = {
-//   id: 1,
-//   sender: 'Vladimir',
-//   body: 'why are you arguing with me',
-//   timeStamp: '2018-05-29T22:49:06+00:00',
-//   liked: false,
-// };
-
 const App = () => {
+  const [chatEntries, setChatEntries] = useState(chatMessages);
+
+  let initalNumLiked = 0;
+  for (const message of chatEntries) {
+    if (message.liked) {
+      initalNumLiked++;
+    }
+  }
+
+  const [numLiked, setNumLiked] = useState(initalNumLiked);
+
+  const updateHeartChatEntries = (updatedMessage) => {
+    const updatedChat = chatEntries.map((message) => {
+      if (message.id === updatedMessage.id) {
+        if (updatedMessage.liked) {
+          setNumLiked(numLiked + 1);
+        } else {
+          setNumLiked(numLiked - 1);
+        }
+        return updatedMessage;
+      } else {
+        return message;
+      }
+    });
+    setChatEntries(updatedChat);
+  };
+
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>{numLiked} ❤️s</h1>
       </header>
       <main>
-        {/* <ChatEntry
-          id={chatMessage.id}
-          sender={chatMessage.sender}
-          body={chatMessage.body}
-          timeStamp={chatMessage.timeStamp}
-          liked={chatMessage.body}
-        /> */}
-        <ChatLog entries={chatMessages} />
+        <ChatLog
+          entries={chatEntries}
+          onUpdateChatHeart={updateHeartChatEntries}
+        />
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
       </main>
