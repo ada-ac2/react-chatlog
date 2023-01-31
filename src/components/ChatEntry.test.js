@@ -2,14 +2,21 @@ import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import ChatEntry from './ChatEntry';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import ChatGlobe from '../models/ChatGlobe';
 
 describe('Wave 01: ChatEntry', () => {
   beforeEach(() => {
     render(
       <ChatEntry
-        sender="Joe Biden"
-        body="Get out by 8am.  I'll count the silverware"
-        timeStamp="2018-05-18T22:12:03Z"
+        chatGlobe={
+          new ChatGlobe(
+            1,
+            'Joe Biden',
+            "Get out by 8am.  I'll count the silverware",
+            '2018-05-18T22:12:03Z',
+            false
+          )
+        }
       />
     );
   });
