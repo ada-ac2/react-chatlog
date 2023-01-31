@@ -14,8 +14,8 @@ const ChatLog = (props) => {
   });
 
   return (
-    <section>
-      <ul>{chatEntries}</ul>
+    <section className="chat-log">
+      <ul className="chat-entries-list">{chatEntries}</ul>
     </section>
   );
 };
