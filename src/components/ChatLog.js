@@ -8,16 +8,22 @@ const ChatLog = (props) => {
         return (
             <section key = {id}>
                 <ChatEntry
+                id = {chat.id}
                 sender = {chat.sender}
                 body = {chat.body}
                 timeStamp = {chat.timeStamp}
+                liked={false}
                 ></ChatEntry>
             </section>
         );
     });
 };
 ChatLog.propTypes = {
-    chats: PropTypes.array.isRequired,
+    entries: PropTypes.array.isRequired,
+    sender: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    timeStamp: PropTypes.string.isRequired,
+    liked: PropTypes.bool.isRequired,
 };
 
 export default ChatLog;
