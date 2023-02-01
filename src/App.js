@@ -25,9 +25,7 @@ const App = () => {
           <h1>Chat between <span className='green'>Vladimir</span> and <span className='blue'>Estragon</span> </h1>
         </div>
         <div className='numberOfLikes'>
-          <span className='green'>Vladimir's color</span>
           <h1 className='numberLikes'>{numberLikes} ❤️s</h1>
-          <span className='blue'>Estragon's color</span>
         </div>
       </header>
       <main>
