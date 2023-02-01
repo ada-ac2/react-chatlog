@@ -1,22 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const BUTTONS = {
-    'red': '🔴',
-    'orange': '🟠',
-    'yellow': '🟡',
-    'green': '🟢',
-    'blue': '🔵',
-    'purple': '🟣',
-}
-
-const ColorChoice = ({color, onChange}) => {
+const ColorChoice = ({id, colorName, emoji, onChange}) => {
 
     const changeColor = (e) => {
-        onChange(color);
+        onChange(colorName);
     }
 
     return(
-    <button onClick={changeColor}>{BUTTONS[color]}</button>
+    <button onClick={changeColor}>{emoji}</button>
     );
 }
+
+ColorChoice.propTypes = {
+    id: PropTypes.number,
+    colorName: PropTypes.string.isRequired,
+    emoji: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+};
+
 export default ColorChoice;

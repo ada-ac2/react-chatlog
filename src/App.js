@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import MESSAGES from './data/messages.json';
+import COLORS from './data/colors.json';
 import ChatLog from './components/ChatLog';
 import ColorChoice from './components/ColorChoice'
 
@@ -14,14 +15,12 @@ for (let message of MESSAGES) {
 const localSender = senders[0];
 const remoteSender = senders[1];
 
-const COLORS = ['red','orange','yellow','green','blue','purple']
-
 const App = () => {
   const [chatMessages, setChatMessages] = useState(MESSAGES);
   const [likesCount, setLikesCount] = useState(0);
   const [localColor, setLocalColor] = useState('black');
   const [remoteColor, setRemoteColor] = useState('black');
-
+  
   const updateChats = (updatedChat) => {
     const chats = chatMessages.map((chat) => { 
       if (updatedChat.id === chat.id){
@@ -39,18 +38,17 @@ const App = () => {
       }
     };
     setLikesCount(likes);
-    
   }
   
   const handleLocalColor = (changedColor) => {
-      setLocalColor(changedColor)}
+    setLocalColor(changedColor)}
   
-    const handleRemoteColor = (changedColor) => {
+  const handleRemoteColor = (changedColor) => {
     setRemoteColor(changedColor);
   }
 
   return (
-    <div id="App">
+    <section id="App">
       <header>
         <h1>
           {`Chat between `}
@@ -58,34 +56,34 @@ const App = () => {
           {` and `} 
           <span className={`${remoteColor}`}>{remoteSender}</span>
         </h1>
-        <section>
-        <section id='header-container'>
-        <div> 
-          <h3 className={localColor}>{localSender}'s color</h3>
-          {COLORS.map((preColor, index)=>
-            <ColorChoice 
-              key={index} 
-              color={preColor} 
-              onChange={handleLocalColor}
-            />)}
-        
-        </div>
-        <span id='heart'> {likesCount} ❤️s</span>
-        <div> 
-          <h3 className={remoteColor}>{remoteSender}'s color</h3>
-          {COLORS.map((preColor, index)=>
-            <ColorChoice 
-              key={index} 
-              color={preColor} 
-              onChange={handleRemoteColor}
-            />)}
-          
-        </div>
-        </section>
-        </section>
+          <section id='header-container'>
+            <section id='header-sender1'> 
+              <h3 className={localColor}>{localSender}'s color</h3>
+              {COLORS.map((color)=>
+                <ColorChoice 
+                  key={color.id} 
+                  colorName={color.colorName}
+                  emoji={color.emoji} 
+                  onChange={handleLocalColor}
+                />)}
+            </section>
+            <span className='widget' id='heartWidget'>
+              {likesCount} ❤️s
+            </span>
+            <section id='header-sender2'> 
+              <h3 className={remoteColor}>{remoteSender}'s color</h3>
+              {COLORS.map((color)=>
+                <ColorChoice 
+                  key={color.id} 
+                  colorName={color.colorName}
+                  emoji={color.emoji} 
+                  onChange={handleRemoteColor}
+                />)}
+            </section>
+          </section>
       </header>
       <main>
-        <div>
+        <section>
           {<ChatLog
             entries={chatMessages} 
             onUpdate={updateChats}
@@ -93,9 +91,9 @@ const App = () => {
             remoteColor={remoteColor}
             localSender={localSender}
           />}
-          </div>
+          </section>
       </main>
-    </div>
+    </section>
   );
 };
 

@@ -28,44 +28,40 @@
   display: inline-block;
 }
 
+#App h3 { 
+  margin-block-start: 0.2em;
+  margin-block-end:  0.2em;
+}
+
+
 #App header section {
   background-color: #e0ffff;
-  padding-bottom:10px;
 }
 
 #header-container {
-  margin: auto;
-  max-width: 50rem;
   color: #222;
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
 } 
 
 #App .widget {
   display: inline-block;
-  line-height: 0.5em;
+  line-height: 1em; 
   border-radius: 10px;
   color: black;
-  font-size:0.8em;
+  font-size: 0.8em;
   padding-left: 1em;
   padding-right: 1em;
+  font-weight: bold; 
 }
 
 #App #heartWidget {
   font-size: 1.5em;
-  margin: 1em
+  margin: 1em;
 }
 
 #App span {
   display: inline-block
-}
-
-#heart{
-  display:flex;
-  justify-content:center;
-  font-size: 1.5rem;
-  margin-top:45px;
 }
 
 .red {
