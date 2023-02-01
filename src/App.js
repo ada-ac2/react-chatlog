@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
-import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
 import chatMessages from './data/messages.json';
 
 const App = () => {
   const [chatData, updateChatData] = useState(chatMessages);
-  const likesChanged = (id) => {
+  const updateLikes = (id) => {
     const chats = chatData.map((chat) => {
       if (chat.id === id) {
         chat.liked = !chat.liked;
@@ -21,9 +20,7 @@ const App = () => {
         <h1 id="App h1">Chat between</h1>
       </header>
       <main id="App main">
-        <div>{<ChatLog entries={chatData} />}</div>
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
+        <div>{<ChatLog entries={chatData} onUpdateLikes={updateLikes} />}</div>
       </main>
     </div>
   );
