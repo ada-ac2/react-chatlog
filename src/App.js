@@ -8,7 +8,9 @@ const App = () => {
   const updateLikes = (id) => {
     const chats = chatData.map((chat) => {
       if (chat.id === id) {
-        chat.liked = !chat.liked;
+        const newChat = { ...chat };
+        newChat.liked = !newChat.liked;
+        return newChat;
       }
       return chat;
     });
@@ -31,7 +33,7 @@ const App = () => {
         </h1>
         <section id="App header section">
           <h2 id="heartWidget" className="widget">
-            <span id="App span">{totalLikes()}❤️s</span>
+            <span id="App span">{totalLikes()} ❤️s</span>
           </h2>
         </section>
       </header>
