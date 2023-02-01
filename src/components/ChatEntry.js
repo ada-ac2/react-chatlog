@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
-  // const id = props.id
+  // const id = props.id;
   const sender = props.sender;
   const body = props.body;
   const timeStamp = props.timeStamp;
@@ -23,7 +23,7 @@ const ChatEntry = (props) => {
 };
 
 ChatEntry.propTypes = {
-  // id: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.instanceOf(TimeStamp).isRequired
