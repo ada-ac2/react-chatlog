@@ -33,7 +33,6 @@ const ChatEntry = (props) => {
 };
 
 ChatEntry.propTypes = {
-  //Fill with correct proptypes
   id: PropTypes.number,
   sender: PropTypes.string,
   body: PropTypes.string,

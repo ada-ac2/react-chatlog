@@ -24,6 +24,7 @@
   font-size: 1.5em;
   text-align: center;
   display: inline-block;
+  
 }
 
 #App header section {
@@ -34,7 +35,7 @@
   display: inline-block;
   line-height: 0.5em;
   border-radius: 10px;
-  color: black;
+  color:rgb(rgb(21, 138, 233), green, blue);
   font-size:0.8em;
   padding-left: 1em;
   padding-right: 1em;
@@ -43,6 +44,7 @@
 #App #heartWidget {
   font-size: 1.5em;
   margin: 1em
+  
 }
 
 #App span {

@@ -1,9 +1,7 @@
 import React from 'react';
 import './App.css';
-import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
 import chatMessages from './data/messages.json';
-import Post from './components/Post';
 import { useState } from 'react';
 
 let numberOfLikes = 0;
@@ -25,8 +23,7 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>React - ChatLog
-        {/* < Post/> */}
+        <h1>Chat between VLadimir and Estragon
           <section>
             <p className="widget" id="heartWidget">
             {numberOfLikes} ❤️s

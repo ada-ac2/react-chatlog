@@ -56,15 +56,19 @@ button {
 /* "local" messages are shown on the left side */
 .chat-entry.local {
   text-align: left;
+  color:green;
 }
+
 
 .chat-entry.local .entry-time {
   text-align: right;
+  color:green
 }
 
 .chat-entry.local .entry-bubble::before {
   background-color: #ffffe0;
   left: -18px;
+  
 }
 
 .chat-entry.local .entry-bubble:hover::before {
@@ -74,20 +78,24 @@ button {
 /* "remote" messages are shown on the right side, in blue */
 .chat-entry.remote {
   text-align: right;
+  color: blue
 }
 
 .chat-entry.remote .entry-bubble {
   background-color: #e0ffff;
   margin-left: auto;
   margin-right: 0;
+  color: blue;
 }
 
 .chat-entry.remote .entry-bubble:hover {
   background-color: #a9f6f6;
+  color: blue;
 }
 
 .chat-entry.remote .entry-time {
   text-align: left;
+  color: blue;
 }
 
 .chat-entry.remote .entry-bubble::before {
