@@ -1,23 +1,36 @@
 import React, {useState} from 'react';
 import './App.css';
-import messages from './data/messages.json';
+import MESSAGES from './data/messages.json';
 import ChatLog from './components/ChatLog';
 import ColorChoice from './components/ColorChoice'
 
 const COLORS = ['red','orange','yellow','green','blue','purple']
-const MESSAGES = messages;
 
 const App = () => {
+  const [chatMessages, setChatMessages] = useState(MESSAGES);
   const [likesCount, setLikesCount] = useState(0);
   const [localColor, setLocalColor] = useState('black');
   const [remoteColor, setRemoteColor] = useState('black');
 
-  const changeLikes = (event, heart) => {
-    if (heart) {
-      setLikesCount(likesCount - 1)
-    } else {
-      setLikesCount(likesCount + 1)
-    }
+
+  const updateChats = (updatedChat) => {
+    const chats = chatMessages.map((chat) => { 
+      if (updatedChat.id === chat.id){
+        return updatedChat;
+      } else {
+        return chat;
+      }
+      
+    });
+    setChatMessages(chats);
+    let likes = 0;
+    for (const chat of chats){
+      if (chat.liked){
+        likes++
+      }
+    };
+    setLikesCount(likes);
+    
   }
 
   const handleLocalColor = (changedColor) => {
@@ -74,8 +87,8 @@ const App = () => {
       <main>
         <div>
           {<ChatLog
-            entries={MESSAGES} 
-            changeLikes={changeLikes}
+            entries={chatMessages} 
+            onUpdate={updateChats}
             localColor={localColor}
             remoteColor={remoteColor}
             localSender={localSender}

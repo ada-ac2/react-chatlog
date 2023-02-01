@@ -1,17 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
 import '../App.css';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
-const ChatEntry = ({id, changeLikes, sender, body, timeStamp, liked, localColor, remoteColor, localSender, remoteSender}) => {
-
-  const [heart, setHeart]  = useState(liked);
+const ChatEntry = ({id, onUpdate, sender, body, timeStamp, liked, localColor, remoteColor, localSender, remoteSender}) => {
 
   const toggleHeart = () => {
-    setHeart(!heart);
-    changeLikes(heart);
-  }
+    return onUpdate({
+      id,
+      sender,
+      body,
+      timeStamp,
+      liked: !liked,
+    })
+  };
 
   let chatLocation;
   if(sender === localSender){ 
@@ -34,7 +37,7 @@ const ChatEntry = ({id, changeLikes, sender, body, timeStamp, liked, localColor,
         <p className={`${currentColor}`}>{body}</p>
         <p className="entry-time">
           <TimeStamp time = {timeStamp}/></p>
-        <button className="like" onClick={toggleHeart}>{heart? '❤️' : '🤍'}</button>
+        <button className="like" onClick={toggleHeart}>{liked? '❤️' : '🤍'}</button>
       </section>
     </div>
   );
@@ -46,7 +49,6 @@ ChatEntry.propTypes = {
     body : PropTypes.string.isRequired,
     timeStamp : PropTypes.string.isRequired,
     liked: PropTypes.bool,
-    changeLikes: PropTypes.func,
     localColor: PropTypes.string,
     remoteColor: PropTypes.string,
     localSender: PropTypes.string,
