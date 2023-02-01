@@ -4,7 +4,7 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
-const ChatEntry = ({id, onUpdate, sender, body, timeStamp, liked, localColor, remoteColor, localSender, remoteSender}) => {
+const ChatEntry = ({id, sender, body, timeStamp, liked, onUpdate, color, location}) => {
 
   const toggleHeart = () => {
     return onUpdate({
@@ -16,25 +16,11 @@ const ChatEntry = ({id, onUpdate, sender, body, timeStamp, liked, localColor, re
     })
   };
 
-  let chatLocation;
-  if(sender === localSender){ 
-    chatLocation='local' 
-  } else if (sender === remoteSender) {
-    chatLocation='remote'
-  };
-
-  let currentColor;
-  if(chatLocation ==='local'){
-    currentColor = localColor;
-  } else {
-    currentColor = remoteColor;
-  };
-
   return (
-    <div className={`chat-entry ${chatLocation}`}>
+    <div className={`chat-entry ${location}`}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p className={`${currentColor}`}>{body}</p>
+        <p className={`${color}`}>{body}</p>
         <p className="entry-time">
           <TimeStamp time = {timeStamp}/></p>
         <button className="like" onClick={toggleHeart}>{liked? '❤️' : '🤍'}</button>
@@ -49,11 +35,9 @@ ChatEntry.propTypes = {
     body : PropTypes.string.isRequired,
     timeStamp : PropTypes.string.isRequired,
     liked: PropTypes.bool,
-    localColor: PropTypes.string,
-    remoteColor: PropTypes.string,
-    localSender: PropTypes.string,
-    remoteSender: PropTypes.string
-
+    onUpdate: PropTypes.func,
+    color: PropTypes.string,
+    location: PropTypes.string,
 };
 
 export default ChatEntry;

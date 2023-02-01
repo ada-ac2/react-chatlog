@@ -3,21 +3,31 @@ import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 import './ChatLog.css';
 
-const ChatLog = ({entries, onUpdate, localColor, remoteColor, localSender, remoteSender}) => {
+const ChatLog = ({entries, onUpdate, localColor, remoteColor, localSender}) => {
     return <ul className="chat-log">
         {entries.map((entry) => (
-            <ChatEntry
-                key={entry.timeStamp}
+            (entry.sender === localSender)?
+                <ChatEntry
+                key={entry.id}
                 id={entry.id}       
                 sender={entry.sender}
                 body={entry.body}
                 timeStamp={entry.timeStamp}
                 liked={entry.liked}
                 onUpdate = {onUpdate}
-                localColor={localColor}
-                remoteColor={remoteColor}
-                localSender={localSender}
-                remoteSender={remoteSender}
+                color={localColor}
+                location='local'
+            /> :
+            <ChatEntry
+                key={entry.id}
+                id={entry.id}       
+                sender={entry.sender}
+                body={entry.body}
+                timeStamp={entry.timeStamp}
+                liked={entry.liked}
+                onUpdate = {onUpdate}
+                color={remoteColor}
+                location='remote'
             />
         ))}
         </ul>
@@ -33,10 +43,10 @@ ChatLog.propTypes = {
             liked:PropTypes.bool,
         })
     ).isRequired,
+    onUpdate: PropTypes.func,
     localColor: PropTypes.string,
     remoteColor: PropTypes.string,
     localSender: PropTypes.string,
-    remoteSender: PropTypes.string
 };
 
 export default ChatLog;

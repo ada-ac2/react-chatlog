@@ -5,13 +5,20 @@ import ChatLog from './components/ChatLog';
 import ColorChoice from './components/ColorChoice'
 
 const COLORS = ['red','orange','yellow','green','blue','purple']
+const localSender = MESSAGES[0].sender;
+let sender;
+for (let message of MESSAGES) {
+  if (message.sender !== localSender){
+    sender = message.sender;
+  };
+};
+const remoteSender = sender;
 
 const App = () => {
   const [chatMessages, setChatMessages] = useState(MESSAGES);
   const [likesCount, setLikesCount] = useState(0);
   const [localColor, setLocalColor] = useState('black');
   const [remoteColor, setRemoteColor] = useState('black');
-
 
   const updateChats = (updatedChat) => {
     const chats = chatMessages.map((chat) => { 
@@ -32,22 +39,13 @@ const App = () => {
     setLikesCount(likes);
     
   }
-
+  
   const handleLocalColor = (changedColor) => {
       setLocalColor(changedColor)}
   
     const handleRemoteColor = (changedColor) => {
     setRemoteColor(changedColor);
   }
-
-  const localSender = MESSAGES[0].sender;
-  let sender;
-  for (let message of MESSAGES) {
-    if (message.sender !== localSender){
-      sender = message.sender;
-    }
-  }
-  const remoteSender = sender;
 
   return (
     <div id="App">
@@ -92,7 +90,6 @@ const App = () => {
             localColor={localColor}
             remoteColor={remoteColor}
             localSender={localSender}
-            remoteSender={remoteSender}
           />}
           </div>
       </main>
