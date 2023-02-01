@@ -14,15 +14,17 @@ const ChatEntry = (props) => {
     };
     props.onUpdate(updatedMessage);
   };
+  const senderOrReciever =
+    props.messageDisplay === 0 ? 'chat-entry local' : 'chat-entry remote';
   return (
-    <div className="chat-entry local">
+    <div className={senderOrReciever}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
         <p className="entry-time">
           <TimeStamp time={props.timeStamp} />
         </p>
-        <button onClick={onClickUpdatedMessage}>
+        <button className="like" onClick={onClickUpdatedMessage}>
           {props.liked ? '❤️' : '🤍'}
         </button>
       </section>
