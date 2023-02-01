@@ -13,9 +13,16 @@ const ChatEntry = ({id, sender, body, timeStamp, onUpdateChat, liked}) => {
     })
   }
   const heartStyle = liked ? '❤️' : '🤍';
+  let entryClass = ''
+
+  if(sender === 'Vladimir'){
+    entryClass = 'Vladimir';
+  }else{
+    entryClass = 'Estragon'; 
+  }
 
   return (
-    <div className="chat-entry local">
+    <div className={`chat-entry local ${entryClass}`}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>

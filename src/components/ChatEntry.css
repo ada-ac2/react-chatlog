@@ -98,3 +98,11 @@ button {
 .chat-entry.remote .entry-bubble:hover::before {
   background-color: #a9f6f6;
 }
+
+.Vladimir {
+  margin-left: 10%;
+}
+
+.Estragon {
+  margin-left: 75%;
+}
