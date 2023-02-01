@@ -42,6 +42,8 @@
   color: #222;
   display: flex;
   justify-content: space-evenly;
+  margin: auto;
+  max-width: 50rem;
 } 
 
 #App .widget {

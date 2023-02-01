@@ -56,8 +56,9 @@ const App = () => {
           {` and `} 
           <span className={`${remoteColor}`}>{remoteSender}</span>
         </h1>
+        <section>
           <section id='header-container'>
-            <section id='header-sender1'> 
+            <section id='header-local'> 
               <h3 className={localColor}>{localSender}'s color</h3>
               {COLORS.map((color)=>
                 <ColorChoice 
@@ -65,12 +66,11 @@ const App = () => {
                   colorName={color.colorName}
                   emoji={color.emoji} 
                   onChange={handleLocalColor}
-                />)}
+                />)
+              }
             </section>
-            <span className='widget' id='heartWidget'>
-              {likesCount} ❤️s
-            </span>
-            <section id='header-sender2'> 
+            <span className='widget' id='heartWidget'>{likesCount} ❤️s</span>
+            <section id='header-remote'> 
               <h3 className={remoteColor}>{remoteSender}'s color</h3>
               {COLORS.map((color)=>
                 <ColorChoice 
@@ -78,9 +78,11 @@ const App = () => {
                   colorName={color.colorName}
                   emoji={color.emoji} 
                   onChange={handleRemoteColor}
-                />)}
+                />)
+              }
             </section>
           </section>
+        </section>  
       </header>
       <main>
         <section>
