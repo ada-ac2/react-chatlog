@@ -21,7 +21,7 @@ const ChatLog = ({entries, onUpdateChat}) => {
     return(messages);
 };
 
-ChatLog.PropTypes = {
+ChatLog.propTypes = {
     entries: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number.isRequired,
