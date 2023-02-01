@@ -4,15 +4,17 @@ import MESSAGES from './data/messages.json';
 import ChatLog from './components/ChatLog';
 import ColorChoice from './components/ColorChoice'
 
-const COLORS = ['red','orange','yellow','green','blue','purple']
-const localSender = MESSAGES[0].sender;
-let sender;
+let senders = []; //MESSAGES can have many senders
 for (let message of MESSAGES) {
-  if (message.sender !== localSender){
-    sender = message.sender;
+  if (!senders.includes(message.sender)){
+    senders.push(message.sender);
   };
 };
-const remoteSender = sender;
+//This chatLog has only two people
+const localSender = senders[0];
+const remoteSender = senders[1];
+
+const COLORS = ['red','orange','yellow','green','blue','purple']
 
 const App = () => {
   const [chatMessages, setChatMessages] = useState(MESSAGES);

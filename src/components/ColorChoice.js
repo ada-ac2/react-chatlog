@@ -10,6 +10,13 @@ const BUTTONS = {
 }
 
 const ColorChoice = ({color, onChange}) => {
-    return <button onClick={()=> onChange(color)}>{BUTTONS[color]}</button>
+
+    const changeColor = (e) => {
+        onChange(color);
+    }
+
+    return(
+    <button onClick={changeColor}>{BUTTONS[color]}</button>
+    );
 }
 export default ColorChoice;
