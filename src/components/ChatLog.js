@@ -6,6 +6,7 @@ const ChatLog = ({ entries, onUpdateLiked }) => {
   const entriesComponents = entries.map((entry) => {
     return (
       <ChatEntry
+        key={entry.id}
         id={entry.id}
         sender={entry.sender}
         body={entry.body}
