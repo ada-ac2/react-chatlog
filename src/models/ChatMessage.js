@@ -1,10 +1,11 @@
 class ChatMessage {
-  constructor(id, sender, body, timeStamp, liked) {
+  constructor(id, sender, body, timeStamp, liked, isLocal) {
     this.id = id;
     this.sender = sender;
     this.body = body;
     this.timeStamp = timeStamp;
     this.liked = liked;
+    this.isLocal = isLocal;
   }
 }
 

@@ -6,6 +6,10 @@ import ChatMessage from '../models/ChatMessage';
 const ChatEntry = (props) => {
   const chatMsg = props.message;
   const typeHeart = chatMsg.liked ? '❤️' : '🤍';
+  const isLocalclass = chatMsg.isLocal ? 'local' : 'remote';
+
+  console.log('IsLocal from prop: ', chatMsg.isLocal);
+  console.log('IsLocal from clasName', isLocalclass);
 
   const clickLike = (e) => {
     props.onUpdateEntry(
@@ -14,13 +18,14 @@ const ChatEntry = (props) => {
         chatMsg.sender,
         chatMsg.body,
         chatMsg.timeStamp,
-        !chatMsg.liked
+        !chatMsg.liked,
+        chatMsg.isLocal
       )
     );
   };
 
   return (
-    <div className="chat-entry local">
+    <div className={`chat-entry ${isLocalclass}`}>
       <h2 className="entry-name">{props.message.sender}</h2>
       <section className="entry-bubble">
         <p>{props.message.body}</p>
