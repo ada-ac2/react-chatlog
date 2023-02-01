@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
@@ -31,12 +31,12 @@ const ChatEntry = ({ id, sender, body, timeStamp, liked, onUpdateLikes }) => {
 };
 
 ChatEntry.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.number,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
-  liked: PropTypes.bool.isRequired,
-  onUpdateLikes: PropTypes.func.isRequired,
+  liked: PropTypes.bool,
+  onUpdateLikes: PropTypes.func,
 };
 
 export default ChatEntry;
