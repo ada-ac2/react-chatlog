@@ -5,30 +5,30 @@ import './ChatLog.css';
 
 const ChatLog = ({entries, onUpdate, localColor, remoteColor, localSender}) => {
     return <ul className="chat-log">
-        {entries.map((entry) => (
+        {entries.map((entry, index) => (
             (entry.sender === localSender)?
                 <ChatEntry
-                key={entry.id}
-                id={entry.id}       
-                sender={entry.sender}
-                body={entry.body}
-                timeStamp={entry.timeStamp}
-                liked={entry.liked}
-                onUpdate = {onUpdate}
-                color={localColor}
-                location='local'
-            /> :
-            <ChatEntry
-                key={entry.id}
-                id={entry.id}       
-                sender={entry.sender}
-                body={entry.body}
-                timeStamp={entry.timeStamp}
-                liked={entry.liked}
-                onUpdate = {onUpdate}
-                color={remoteColor}
-                location='remote'
-            />
+                    key={entry.timeStamp}
+                    id={entry.id}       
+                    sender={entry.sender}
+                    body={entry.body}
+                    timeStamp={entry.timeStamp}
+                    liked={entry.liked}
+                    onUpdate = {onUpdate}
+                    color={localColor}
+                    location='local'
+                /> :
+                <ChatEntry
+                    key={entry.timeStamp}
+                    id={entry.id}       
+                    sender={entry.sender}
+                    body={entry.body}
+                    timeStamp={entry.timeStamp}
+                    liked={entry.liked}
+                    onUpdate = {onUpdate}
+                    color={remoteColor}
+                    location='remote'
+                />
         ))}
         </ul>
 };
