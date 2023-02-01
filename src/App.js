@@ -29,7 +29,6 @@ const App = () => {
     }
 
     setChatEntryData(entries);
-
     setLikesCount(updatedLikesCount);
 
   };
@@ -40,8 +39,8 @@ const App = () => {
         <h1>Application title</h1>
         <section>
           {<HeartInfo
-            onUpdateChatEntry={updateChatEntryData}
             likesCount={likesCount}
+            onUpdateChatEntry={updateChatEntryData}
           />
           }
         </section>
@@ -53,7 +52,6 @@ const App = () => {
           <ChatLog 
             entries={chatEntryData}
             onUpdateChatEntry={updateChatEntryData}
-            // onUpdateChatEntry={updateLikesCount}
           />
         }
         </section>
@@ -61,7 +59,5 @@ const App = () => {
     </div>
   );
 };
-
-
 
 export default App;

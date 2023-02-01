@@ -24,7 +24,6 @@ const ChatLog = (props) => {
 };
 
 ChatLog.propTypes = {
-  //Fill with correct proptypes
   entries: PropTypes.array.isRequired,
 };
 
