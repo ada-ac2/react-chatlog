@@ -4,26 +4,41 @@ import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
 const ChatLog = (props) => {
-    return props.entries.map((chat, id) => {
+    const chatentryComponents =props.entries.map((chat,index)=>{
         return (
-            <section key = {id}>
+            <div key={index} className="chat-log">
                 <ChatEntry
-                id = {chat.id}
-                sender = {chat.sender}
-                body = {chat.body}
-                timeStamp = {chat.timeStamp}
-                liked={false}
+                    id = {chat.id}
+                    sender ={chat.sender}
+                    body = {chat.body}
+                    timeStamp = {chat.timeStamp}
+                    liked = {chat.liked}
+                    onUpdate = {props.onUpdatechat}
                 ></ChatEntry>
-            </section>
+            </div>
         );
     });
+    return (
+        <section>
+            <h2>Chat</h2>
+            <ul>
+                {chatentryComponents};
+            </ul>
+        </section>
+    );
 };
+
 ChatLog.propTypes = {
-    entries: PropTypes.array.isRequired,
-    sender: PropTypes.string.isRequired,
-    body: PropTypes.string.isRequired,
-    timeStamp: PropTypes.string.isRequired,
-    liked: PropTypes.bool.isRequired,
-};
+    entries: PropTypes.arrayOf(PropTypes.shape({
+        id:PropTypes.number,
+        sender: PropTypes.string,
+        body: PropTypes.string,
+        timeStamp: PropTypes.string,
+        liked: PropTypes.bool,
+    })
+    ).isRequired,
+    
+    onUpdatechat: PropTypes.func
+}; 
 
 export default ChatLog;

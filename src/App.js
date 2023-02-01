@@ -4,12 +4,34 @@ import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
 import chatMessages from './data/messages.json';
 import Post from './components/Post';
+import { useState } from 'react';
+
+let numberOfLikes = 0;
 const App = () => {
+  const [MessageData, setMessageData] = useState(chatMessages)
+  
+  const updateMessageData = updatedChatEntry =>{
+    const entries = MessageData.map((chat) => {
+      if(chat.id === updatedChatEntry.id){
+        numberOfLikes = updatedChatEntry.liked ? numberOfLikes+1 : numberOfLikes-1;
+        return updatedChatEntry;
+      } else {
+        return chat;
+      }
+      });
+      setMessageData(entries);
+      
+  };
   return (
     <div id="App">
       <header>
         <h1>React - ChatLog
-        < Post/>
+        {/* < Post/> */}
+          <section>
+            <p className="widget" id="heartWidget">
+            {numberOfLikes} ❤️s
+            </p>
+          </section>
         </h1>
       </header>
       <main>
@@ -21,9 +43,10 @@ const App = () => {
         timeStamp = {chatMessages[0].timeStamp}
         >
         </ChatEntry> */}
+
         <ChatLog
-        entries={chatMessages}
-        >  
+          entries={MessageData}
+          onUpdatechat={updateMessageData}>
         </ChatLog>
         
       </main>
