@@ -8,6 +8,10 @@ button {
 	outline: inherit;
 }
 
+.red {
+  color: red;
+}
+
 .chat-entry {
   margin: 1rem;
 }
