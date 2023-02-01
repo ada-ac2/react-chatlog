@@ -22,10 +22,10 @@ const App = () => {
     <div id="App">
       <header>
         <div className='applicationTitle'>
-          <h1>Chat between Vladimir and Estragon</h1>
+          <h1>Chat between Vladimir Estragon</h1>
         </div>
         <div className='numberOfLikes'>
-          <h1>{numberLikes} ❤️s</h1>
+          <h1 className='numberLikes'>{numberLikes} ❤️s</h1>
         </div>
       </header>
       <main>
