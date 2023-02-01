@@ -1,22 +1,42 @@
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
+import TimeStamp from './TimeStamp';
 
-const ChatEntry = (props) => {
+const ChatEntry = ({ id, sender, body, timeStamp, liked, onUpdateLikes }) => {
+  const chatTime = <TimeStamp time={timeStamp} />;
+  const localOrRemote = id % 2 === 0 ? 'remote' : 'local';
+  const updateLikes = (id) => {
+    onUpdateLikes(id);
+  };
+  const heartLiked = liked ? '❤️' : '🤍';
+
   return (
-    <div className="chat-entry local">
-      <h2 className="entry-name">Replace with name of sender</h2>
+    <div key={id} className={`chat-entry ${localOrRemote}`}>
+      <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p>Replace with body of ChatEntry</p>
-        <p className="entry-time">Replace with TimeStamp component</p>
-        <button className="like">🤍</button>
+        <p>{body}</p>
+        <p className="entry-time">{chatTime}</p>
+        <button
+          onClick={() => {
+            updateLikes(id);
+          }}
+          className="like"
+        >
+          {heartLiked}
+        </button>
       </section>
     </div>
   );
 };
 
 ChatEntry.propTypes = {
-  //Fill with correct proptypes
+  id: PropTypes.number,
+  sender: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool,
+  onUpdateLikes: PropTypes.func,
 };
 
 export default ChatEntry;
