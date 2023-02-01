@@ -32,7 +32,7 @@ const ChatLog = (props) => {
 ChatLog.propTypes = {
   messages: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number, //.isRequired,
+      id: PropTypes.number.isRequired,
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
       liked: PropTypes.bool,

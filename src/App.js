@@ -4,8 +4,6 @@ import ChatLog from './components/ChatLog';
 import chatMessages from './data/messages.json';
 
 const App = () => {
-  //let shallowCopyMessages = Object.assign({}, chatMessages);
-  //let deepCopyMessages = cloneDeep(chatMessages);
   const [chatEntryData, setChatData] = useState(chatMessages);
 
   const updateEntryData = (updatedMessage) => {
