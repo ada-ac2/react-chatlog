@@ -17,6 +17,7 @@ button {
 }
 
 .chat-entry .entry-bubble {
+  color: green;
   background-color: #ffffe0;
   border-radius: 30px;
   max-width: 50rem;
@@ -80,6 +81,7 @@ button {
   background-color: #e0ffff;
   margin-left: auto;
   margin-right: 0;
+  color: blue;
 }
 
 .chat-entry.remote .entry-bubble:hover {
@@ -97,12 +99,4 @@ button {
 
 .chat-entry.remote .entry-bubble:hover::before {
   background-color: #a9f6f6;
-}
-
-.Vladimir {
-  margin-left: 10%;
-}
-
-.Estragon {
-  margin-left: 75%;
 }

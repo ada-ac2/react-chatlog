@@ -16,13 +16,13 @@ const ChatEntry = ({id, sender, body, timeStamp, onUpdateChat, liked}) => {
   let entryClass = ''
 
   if(sender === 'Vladimir'){
-    entryClass = 'Vladimir';
+    entryClass = 'local';
   }else{
-    entryClass = 'Estragon'; 
+    entryClass = 'remote'; 
   }
 
   return (
-    <div className={`chat-entry local ${entryClass}`}>
+    <div className={`chat-entry ${entryClass}`}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>
