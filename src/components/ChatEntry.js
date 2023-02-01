@@ -1,22 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = ({ id, sender, body, timeStamp, liked, onUpdateLikes }) => {
   const chatTime = <TimeStamp time={timeStamp} />;
-  const updateLikes = () => {
+
+  const updateLikes = (id) => {
     onUpdateLikes(id);
-    console.log(`Updating likes for ${sender}`);
   };
+  const heartLiked = liked ? '❤️' : '🤍';
   return (
     <div key={id} className="chat-entry local">
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>
         <p className="entry-time">{chatTime}</p>
-        <button onClick={updateLikes} className="like">
-          {liked}🤍
+        <button
+          onClick={() => {
+            updateLikes(id);
+          }}
+          className="like"
+        >
+          {heartLiked}
         </button>
       </section>
     </div>
