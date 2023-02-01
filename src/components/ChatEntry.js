@@ -2,7 +2,7 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
-const ChatEntry = ({id, sender, body, timeStamp, onUpdateChat, liked}) => {
+const ChatEntry = ({id, sender, body, timeStamp, onUpdateChat, liked, numberLikes}) => {
   const updateClickState = () => {
     onUpdateChat({
       id, 
@@ -13,6 +13,7 @@ const ChatEntry = ({id, sender, body, timeStamp, onUpdateChat, liked}) => {
     })
   }
   const heartStyle = liked ? '❤️' : '🤍';
+
 
   return (
     <div className="chat-entry local">

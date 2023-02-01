@@ -5,6 +5,7 @@ import chatMessages from './data/messages.json';
 
 const App = () => {
   const [chatEntries, setChatEntries] = useState(chatMessages);   
+  let numberLikes = 0 
 
   const updateChatEntry = (chatToUpdate) => {
     const chats = chatEntries.map((entry) => {
@@ -13,13 +14,28 @@ const App = () => {
       }
       return entry;
     });
+
     setChatEntries(chats); 
   };
+
+  const numberOfLikes = () => {
+    for(const entry of chatEntries){
+      if(entry.liked){
+        numberLikes++ 
+      }
+    }
+    return numberLikes
+  }
 
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <div className='applicationTitle'>
+          <h1>Application title</h1>
+        </div>
+        <div className='numberOfLikes'>
+          <h1>{numberOfLikes()} ❤️s</h1>
+        </div>
       </header>
       <main>
         <ChatLog entries = {chatEntries}
