@@ -13,10 +13,16 @@ for (let message of MESSAGES) {
 //This chatLog has only two people
 const localSender = senders[0];
 const remoteSender = senders[1];
+let initialLiked = 0;
+for (let message of MESSAGES) {
+  if (message.liked){
+    initialLiked++
+  };
+};
 
 const App = () => {
   const [chatMessages, setChatMessages] = useState(MESSAGES);
-  const [likesCount, setLikesCount] = useState(0);
+  const [likesCount, setLikesCount] = useState(initialLiked);
   const [localColor, setLocalColor] = useState('black');
   const [remoteColor, setRemoteColor] = useState('black');
   
