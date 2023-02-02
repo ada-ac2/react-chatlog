@@ -29,8 +29,12 @@ const ChatEntry = (props) => {
       </button>
     </section>
   );
+
+  const bubbleSide =
+    props.id % 2 === 1 ? 'chat-entry local' : 'chat-entry remote';
+
   return (
-    <div className="chat-entry local">
+    <div className={bubbleSide}>
       {sender}
       {content}
     </div>

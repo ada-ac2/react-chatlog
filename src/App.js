@@ -23,9 +23,11 @@ const App = () => {
         <h1>
           Chat between {chatData[0]['sender']} and {chatData[1]['sender']}
         </h1>
+        <section>
+          <h1>{likes} ❤️s</h1>
+        </section>
       </header>
       <main>
-        <h1>{likes} ❤️s</h1>
         <ChatLog entries={chatData} onUpdateChat={updateChatData} />
       </main>
     </div>
