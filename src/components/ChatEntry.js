@@ -26,11 +26,11 @@ const ChatEntry = (props) => {
 
   return (
     <div className={`chat-entry ${isLocalclass}`}>
-      <h2 className="entry-name">{props.message.sender}</h2>
+      <h2 className="entry-name">{chatMsg.sender}</h2>
       <section className="entry-bubble">
-        <p>{props.message.body}</p>
+        <p>{chatMsg.body}</p>
         <p className="entry-time">
-          <TimeStamp time={props.message.timeStamp}></TimeStamp>
+          <TimeStamp time={chatMsg.timeStamp}></TimeStamp>
         </p>
         <button onClick={clickLike} className="like">
           {typeHeart}
