@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
-  // const [like, setLike] = useState(props.liked);
   const toggleLike = () => {
-    // setLike(!like);
     const update = {
       id: props.id,
       sender: props.sender,
