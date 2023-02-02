@@ -49,6 +49,15 @@
   display: inline-block
 }
 
+.colorchoice button{
+  border-radius: 20px;
+  margin: 5px;
+}
+
+.colorchoice button:hover{
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
 .red {
   color: #b22222
 }
@@ -58,17 +67,55 @@
 }
 
 .yellow {
-  color: #e6e600
+  color: #e6e600;
 }
 
 .green {
-  color: green
+  color: green;
 }
 
 .blue {
-  color: blue
+  color: blue;
 }
 
 .purple {
-  color: purple
+  color: purple;
+}
+
+.black{
+  color:black;
+}
+
+.ribbon{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.button-red{
+  background-color: red;
+}
+
+.button-orange {
+  background-color: #e6ac00
+}
+
+.button-yellow {
+  background-color: #e6e600;
+}
+
+.button-green {
+  background-color: green;
+}
+
+.button-blue {
+  background-color: blue;
+}
+
+.button-purple {
+  background-color: purple;
+}
+
+.sender{
+  color:black;
 }
