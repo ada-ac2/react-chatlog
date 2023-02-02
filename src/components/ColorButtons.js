@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import COLORS from '../data/colors.json';
 import ColorChoice from './ColorChoice'
 
@@ -15,5 +16,10 @@ const ColorButtons = ({onChange}) => {
         </section>
     );
 };
+
+ColorButtons.propTypes = {
+    onChange: PropTypes.func.isRequired,
+};
+
 
 export default ColorButtons;
