@@ -5,44 +5,44 @@ import chatMessages from './data/messages.json';
 import ChatMessage from './models/ChatMessage';
 import ColorChoice from './components/ColorChoice';
 
-const App = () => {
-  const messages = [];
-  let isLocal = true;
-  for (const msg of chatMessages) {
-    messages.push(
-      new ChatMessage(
-        msg.id,
-        msg.sender,
-        msg.body,
-        msg.timeStamp,
-        msg.liked,
-        isLocal
-      )
-    );
-    isLocal = !isLocal;
+const messages = [];
+let isLocal = true;
+let initialLikes = 0;
+for (const msg of chatMessages) {
+  messages.push(
+    new ChatMessage(
+      msg.id,
+      msg.sender,
+      msg.body,
+      msg.timeStamp,
+      msg.liked,
+      isLocal
+    )
+  );
+  if (msg.liked) {
+    ++initialLikes;
   }
+  isLocal = !isLocal;
+}
 
+const App = () => {
   const [chatEntries, setChatEntries] = useState(messages);
   const [localColor, setLocalColor] = useState('');
   const [remoteColor, setRemoteColor] = useState('');
+  const [totalLikes, setTotalLikes] = useState(initialLikes);
 
   const updateChatEntry = (updatedEntry) => {
     const updatedMsg = chatEntries.map((entry) => {
       if (entry.id === updatedEntry.id) {
+        if (updatedEntry.liked) {
+          setTotalLikes(totalLikes + 1);
+        } else {
+          setTotalLikes(totalLikes - 1);
+        }
         return updatedEntry;
       } else return entry;
     });
     setChatEntries(updatedMsg);
-  };
-
-  const getNumLikes = () => {
-    let numLikes = 0;
-    for (const entry of chatEntries) {
-      if (entry.liked) {
-        ++numLikes;
-      }
-    }
-    return numLikes;
   };
 
   const getColor = (local) => {
@@ -67,7 +67,7 @@ const App = () => {
             newColor={localColor}
           ></ColorChoice>
           <h2 className="widget" id="heartWidget">
-            {getNumLikes()} ❤️s
+            {totalLikes} ❤️s
           </h2>
           <ColorChoice
             updateColor={setRemoteColor}
