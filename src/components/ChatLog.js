@@ -6,9 +6,8 @@ import './ChatLog.css';
 const ChatLog = ({entries, onUpdateChat}) => {
     const messages = entries.map((message, index) => {
         return(
-            <section key = {message.id}>
+            <section key = {index}>
                 <ChatEntry 
-                    key = {index}
                     sender = {message.sender}
                     body = {message.body} 
                     timeStamp = {message.timeStamp}
