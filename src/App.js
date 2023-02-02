@@ -9,7 +9,7 @@ const App = () => {
   const updateChatData = (updatedChat) => {
     const entries = chatData.map((entry) => {
       if (entry.id === updatedChat.id) {
-        // likes = updatedChat.liked ? likes++ : likes--;
+        likes = updatedChat.liked ? ++likes : --likes;
         return updatedChat;
       }
       return entry;
@@ -21,13 +21,12 @@ const App = () => {
     <div id="App">
       <header>
         <h1>
-          Chat between {chatMessages[0]['sender']} and{' '}
-          {chatMessages[1]['sender']}
+          Chat between {chatData[0]['sender']} and {chatData[1]['sender']}
         </h1>
       </header>
       <main>
         <h1>{likes} ❤️s</h1>
-        <ChatLog entries={chatMessages} onUpdateChat={updateChatData} />
+        <ChatLog entries={chatData} onUpdateChat={updateChatData} />
       </main>
     </div>
   );
