@@ -18,8 +18,8 @@ const App = () => {
       }
       });
       setMessageData(entries);
-      
   };
+  
   return (
     <div id="App">
       <header>
