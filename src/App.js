@@ -8,20 +8,24 @@ const App = () => {
   const [entryData, setEntryData] = useState(chatMessages);
 
   const updateLikedMessage = (id) => {
-    const allEntries = entryData.map(entry => {
+    const allEntries = entryData.map((entry) => {
       if (entry.id === id) {
-        return {...entry, likedCount: entry.likedCount + 1};
+        return { ...entry, liked: !entry.liked };
       } else {
         return entry;
       }
     });
-
     setEntryData(allEntries);
   };
 
-  // const totalLikes = (entryData) => {
+  const totalLikes = () => {
+    const allLikes = entryData.reduce((likeCount, entry) => 
+    likeCount + entry.liked, 0);
+    console.log('allik', allLikes)
+    return allLikes
+  };
 
-  // };
+  const allLikes = totalLikes();
 
   return (
     <div id="App">
@@ -29,7 +33,11 @@ const App = () => {
         <h1>Chat between Vladimir and Estragon</h1>
       </header>
       <main>
-        <ChatLog entries={chatMessages} onUpdateLikedMessage={updateLikedMessage}/>
+        <div>{allLikes} ❤️s</div>
+        <ChatLog
+          entries={chatMessages}
+          onUpdateLikedMessage={updateLikedMessage}
+        />
       </main>
     </div>
   );
