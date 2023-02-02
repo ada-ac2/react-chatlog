@@ -21,7 +21,7 @@ describe("Wave 01: ChatEntry", () => {
   test("that it will display the body", () => {
     expect(screen.getByText(/Get out by 8am/)).toBeInTheDocument();
   });
-
+  
   test("that it will display the time", () => {
     expect(screen.getByText(/\d+ years ago/)).toBeInTheDocument();
   });
