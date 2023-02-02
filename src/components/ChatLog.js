@@ -5,9 +5,10 @@ import './ChatLog.css';
 
 const ChatLog = ({entries, onUpdate, localColor, remoteColor, localSender}) => {
     return <ul className="chat-log">
-        {entries.map((entry, index) => (
+        {entries.map((entry) => (
             (entry.sender === localSender)?
                 <ChatEntry
+                    // key={entry.id}
                     key={entry.timeStamp}
                     id={entry.id}       
                     sender={entry.sender}
@@ -19,6 +20,7 @@ const ChatLog = ({entries, onUpdate, localColor, remoteColor, localSender}) => {
                     location='local'
                 /> :
                 <ChatEntry
+                    // key={entry.id}
                     key={entry.timeStamp}
                     id={entry.id}       
                     sender={entry.sender}

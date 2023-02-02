@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
 import MESSAGES from './data/messages.json';
-import COLORS from './data/colors.json';
 import ChatLog from './components/ChatLog';
-import ColorChoice from './components/ColorChoice'
+import ColorButtons from './components/ColorButtons'
 
 let senders = []; //MESSAGES can have many senders
 for (let message of MESSAGES) {
@@ -60,26 +59,12 @@ const App = () => {
           <section id='header-container'>
             <section id='header-local'> 
               <h3 className={localColor}>{localSender}'s color</h3>
-              {COLORS.map((color)=>
-                <ColorChoice 
-                  key={color.id} 
-                  colorName={color.colorName}
-                  emoji={color.emoji} 
-                  onChange={handleLocalColor}
-                />)
-              }
+              <ColorButtons onChange={handleLocalColor} /> 
             </section>
             <span className='widget' id='heartWidget'>{likesCount} ❤️s</span>
             <section id='header-remote'> 
               <h3 className={remoteColor}>{remoteSender}'s color</h3>
-              {COLORS.map((color)=>
-                <ColorChoice 
-                  key={color.id} 
-                  colorName={color.colorName}
-                  emoji={color.emoji} 
-                  onChange={handleRemoteColor}
-                />)
-              }
+              <ColorButtons onChange={handleRemoteColor} />
             </section>
           </section>
         </section>  
