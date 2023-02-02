@@ -1,5 +1,5 @@
 class ChatMessage {
-  constructor(id, sender, body, timeStamp, liked, isLocal) {
+  constructor(id, sender, body, timeStamp, liked, isLocal, color) {
     this.id = id;
     this.sender = sender;
     this.body = body;

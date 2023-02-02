@@ -11,6 +11,7 @@ const ChatLog = (props) => {
         <ChatEntry
           message={entry}
           onUpdateEntry={props.onUpdateChatEntry}
+          getColor={props.getColor}
         ></ChatEntry>
       </li>
     );
@@ -26,6 +27,7 @@ const ChatLog = (props) => {
 ChatLog.propTypes = {
   entries: PropTypes.arrayOf(PropTypes.instanceOf(ChatMessage)).isRequired,
   onUpdateChatEntry: PropTypes.func.isRequired,
+  //getColor: PropTypes.func,
 };
 
 export default ChatLog;
