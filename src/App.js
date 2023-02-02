@@ -36,7 +36,7 @@ const App = () => {
       </header>
       <main>
         <ChatLog
-          entries={chatMessages}
+          entries={entryData}
           onUpdateLikedMessage={updateLikedMessage}
         />
       </main>
