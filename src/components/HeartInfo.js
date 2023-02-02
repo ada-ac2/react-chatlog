@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const HeartInfo = (props) => {
   return (
     <section>
-      <span id="heartWidget" class="widget">
+      <span id="heartWidget" className="widget">
         {props.likesCount} ❤️s
       </span>
     </section>
