@@ -8,8 +8,9 @@ const ChatEntry = (props) => {
   const sender = props.sender;
   const body = props.body;
   const timeStamp = props.timeStamp;
-  const liked = props.liked
-  const likedCount = props.likedCount
+  const liked = props.liked;
+  const likedCount = props.likedCount;
+  const onUpdateLikedMessage =  props.onUpdateLikedMessage;
 
   const senderSide = (sender === 'Vladimir') ? 'chat-entry local' : 'chat-entry remote';
 
@@ -31,7 +32,8 @@ ChatEntry.propTypes = {
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.instanceOf(TimeStamp).isRequired,
   liked: PropTypes.bool.isRequired,
-  likedCount: PropTypes.number.isRequired
+  likedCount: PropTypes.number.isRequired,
+  onUpdateLikedMessage: PropTypes.func.isRequired
 };
 
 export default ChatEntry;
