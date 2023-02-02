@@ -10,8 +10,10 @@ const ChatEntry = (props) => {
   const timeStamp = props.timeStamp;
   // const liked = props.liked
 
+  const senderSide = (sender === 'Vladimir') ? 'chat-entry local' : 'chat-entry remote';
+
   return (
-    <div className="chat-entry local">
+    <div className={senderSide}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p>{body}</p>
