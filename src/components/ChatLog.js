@@ -8,6 +8,7 @@ const ChatLog = ({entries, onUpdateChat}) => {
         return(
             <section key = {message.id}>
                 <ChatEntry 
+                    key={message.id}
                     sender = {message.sender}
                     body = {message.body}
                     timeStamp = {message.timeStamp}
