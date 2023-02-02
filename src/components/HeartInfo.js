@@ -13,7 +13,7 @@ const HeartInfo = (props) => {
 };
 
 HeartInfo.propTypes = {
-  likeCount: PropTypes.number
+  likesCount: PropTypes.number
 };
 
 export default HeartInfo;

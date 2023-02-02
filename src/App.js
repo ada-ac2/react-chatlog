@@ -40,7 +40,7 @@ const App = () => {
         <section>
           {<HeartInfo
             likesCount={likesCount}
-            onUpdate={updateChatEntryData}
+            onUpdateEntry={updateChatEntryData}
           />
           }
         </section>
@@ -51,7 +51,7 @@ const App = () => {
         {
           <ChatLog 
             entries={chatEntryData}
-            onUpdate={updateChatEntryData}
+            onUpdateEntry={updateChatEntryData}
           />
         }
         </section>
