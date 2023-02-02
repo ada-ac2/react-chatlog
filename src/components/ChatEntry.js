@@ -1,22 +1,46 @@
 import React from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
+import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
+  // const [like, setLike] = useState(props.liked);
+  const toggleLike = () => {
+    // setLike(!like);
+    const update = {
+      id: props.id,
+      sender: props.sender,
+      body: props.body,
+      timeStamp: props.timeStamp,
+      liked: !props.liked,
+    };
+    props.updateLike(update);
+  };
+
+  const sender = <h2 className="entry-name">{props.sender}</h2>;
+  const content = (
+    <section className="entry-bubble">
+      <p>{props.body}</p>
+      <p className="entry-time">
+        <TimeStamp time={props.timeStamp} />
+      </p>
+      <button className="like" onClick={toggleLike}>
+        {props.liked ? '❤️' : '🤍'}
+      </button>
+    </section>
+  );
   return (
     <div className="chat-entry local">
-      <h2 className="entry-name">Replace with name of sender</h2>
-      <section className="entry-bubble">
-        <p>Replace with body of ChatEntry</p>
-        <p className="entry-time">Replace with TimeStamp component</p>
-        <button className="like">🤍</button>
-      </section>
+      {sender}
+      {content}
     </div>
   );
 };
 
 ChatEntry.propTypes = {
-  //Fill with correct proptypes
+  id: PropTypes.number,
+  sender: PropTypes.string,
+  body: PropTypes.string,
 };
 
 export default ChatEntry;
