@@ -6,7 +6,8 @@ import ChatEntry from './ChatEntry.js';
 const ChatLog = (props) => {
   const entries = props.entries.map((entry, index) => {
     return (
-      <ChatEntry key={index}
+      <ChatEntry 
+        key={index}
         id={entry.id}
         sender={entry.sender}
         body={entry.body}
@@ -31,7 +32,7 @@ ChatLog.propTypes = {
     timeStamp: PropTypes.string.isRequired,
     liked: PropTypes.bool,
   })),
-  onUpdateChatEntry: PropTypes.func.isRequired
+  onUpdate: PropTypes.func.isRequired
 };
 
 
