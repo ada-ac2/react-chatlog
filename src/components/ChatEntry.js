@@ -1,9 +1,14 @@
 import React from 'react';
+import { useState } from 'react';
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = ({ id, sender, body, timeStamp }) => {
+  const [like, setLike] = useState(false);
+  const updateLike = () => {
+    setLike(!like);
+  };
   return (
     <div
       className={'chat-entry ' + (sender === 'Vladimir' ? 'local' : 'remote')}
@@ -12,7 +17,9 @@ const ChatEntry = ({ id, sender, body, timeStamp }) => {
       <section className="entry-bubble">
         <p>{body}</p>
         <p className="entry-time">{<TimeStamp time={timeStamp}></TimeStamp>}</p>
-        <button className="like">🤍</button>
+        <button className="like" onClick={updateLike}>
+          {!like ? '🤍' : '❤️'}
+        </button>
       </section>
     </div>
   );
