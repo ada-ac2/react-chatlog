@@ -3,20 +3,20 @@ import './App.css';
 import ChatLog from './components/ChatLog'; 
 import chatMessages from './data/messages.json';
 
-let numberLikes = 0;
-
 const App = () => {
   const [chatEntries, setChatEntries] = useState(chatMessages);   
+  const [numberLikes, setNumberLikes] = useState(0);   
+
   const updateChatEntry = (chatToUpdate) => {
     const chats = chatEntries.map((entry) => {
       if(entry.id === chatToUpdate.id){
-        numberLikes = chatToUpdate.liked ? numberLikes+1 : numberLikes-1
+        setNumberLikes(chatToUpdate.liked ? numberLikes+1 : numberLikes-1) 
         return chatToUpdate; 
       }
       return entry;
     });
-    setChatEntries(chats); 
-  };
+    setChatEntries(chats);
+  }; 
 
   return (
     <div id="App">
