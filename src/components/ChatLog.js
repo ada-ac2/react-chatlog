@@ -4,17 +4,18 @@ import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry.js';
 
 const ChatLog = (props) => {
-  const entries = props.entries.map((entry) => {
+  const entries = props.entries.map((entry, index) => {
     return (
-      <ChatEntry 
-        key={entry.id}
-        id={entry.id}
-        sender={entry.sender}
-        body={entry.body}
-        timeStamp={entry.timeStamp}
-        liked={entry.liked}
-        onUpdate={props.onUpdateEntry}
-        />);
+          <ChatEntry
+            key={index}
+            id={entry.id}
+            sender={entry.sender}
+            body={entry.body}
+            timeStamp={entry.timeStamp}
+            liked={entry.liked}
+            onUpdate={props.onUpdateEntry}
+          />
+        );
       });
     return(
       <section className="chat-log">
@@ -31,8 +32,8 @@ ChatLog.propTypes = {
     body: PropTypes.string.isRequired,
     timeStamp: PropTypes.string.isRequired,
     liked: PropTypes.bool,
-  })).isRequired,
-  onUpdateEntry: PropTypes.func.isRequired
+  })),
+  onUpdateEntry: PropTypes.func
 };
 
 
