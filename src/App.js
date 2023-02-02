@@ -21,7 +21,6 @@ const App = () => {
   const totalLikes = () => {
     const allLikes = entryData.reduce((likeCount, entry) => 
     likeCount + entry.liked, 0);
-    console.log('allik', allLikes)
     return allLikes
   };
 
@@ -31,9 +30,11 @@ const App = () => {
     <div id="App">
       <header>
         <h1>Chat between Vladimir and Estragon</h1>
+        <section>
+          <div className="widget" id="heartWidget">{allLikes} ❤️s</div>
+        </section>
       </header>
       <main>
-        <div>{allLikes} ❤️s</div>
         <ChatLog
           entries={chatMessages}
           onUpdateLikedMessage={updateLikedMessage}
