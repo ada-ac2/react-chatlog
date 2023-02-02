@@ -9,10 +9,8 @@ const ChatEntry = (props) => {
   const body = props.body;
   const timeStamp = props.timeStamp;
   const liked = props.liked;
-  const onUpdateLikedMessage =  props.onUpdateLikedMessage;
 
   const senderSide = (sender === 'Vladimir') ? 'chat-entry local' : 'chat-entry remote';
-
   const heart = liked ? '❤️' : '🤍';
 
   return (
@@ -21,11 +19,9 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         <p>{body}</p>
         <p className="entry-time"><TimeStamp time={timeStamp} /></p>
-        <button 
-          className="like"
-          onClick={() => onUpdateLikedMessage(id)}
-        >
-          {heart}</button>
+        <button className="like" onClick={() => props.onUpdateLikedMessage(id)}>
+          {heart}
+        </button>
       </section>
     </div>
   );

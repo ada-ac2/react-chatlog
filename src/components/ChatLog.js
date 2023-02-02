@@ -8,7 +8,6 @@ import ChatEntry from './ChatEntry';
 const ChatLog = (props) => {
   const messages = props.entries.map((message) => {
     return (
-
       <div key={message.id}>
         <ChatEntry
           id={message.id}
