@@ -9,6 +9,7 @@ const ChatEntry = (props) => {
   const body = props.body;
   const timeStamp = props.timeStamp;
   const liked = props.liked
+  const likedCount = props.likedCount
 
   const senderSide = (sender === 'Vladimir') ? 'chat-entry local' : 'chat-entry remote';
 
@@ -29,7 +30,8 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.instanceOf(TimeStamp).isRequired,
-  liked: PropTypes.bool.isRequired
+  liked: PropTypes.bool.isRequired,
+  likedCount: PropTypes.number.isRequired
 };
 
 export default ChatEntry;
