@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
-  // const id = props.id;
+  const id = props.id;
   const sender = props.sender;
   const body = props.body;
   const timeStamp = props.timeStamp;
-  // const liked = props.liked
+  const liked = props.liked
 
   const senderSide = (sender === 'Vladimir') ? 'chat-entry local' : 'chat-entry remote';
 
@@ -28,8 +28,8 @@ ChatEntry.propTypes = {
   id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.instanceOf(TimeStamp).isRequired
-  // liked: PropTypes.bool.isRequired
+  timeStamp: PropTypes.instanceOf(TimeStamp).isRequired,
+  liked: PropTypes.bool.isRequired
 };
 
 export default ChatEntry;
