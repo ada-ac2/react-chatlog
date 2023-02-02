@@ -4,13 +4,13 @@ import './ChatLog.css';
 
 
 const ChatLog = ({entries, onUpdateChat}) => {
-    const messages = entries.map((message) => {
+    const messages = entries.map((message, index) => {
         return(
             <section key = {message.id}>
                 <ChatEntry 
-                    key={message.id}
+                    key = {index}
                     sender = {message.sender}
-                    body = {message.body}
+                    body = {message.body} 
                     timeStamp = {message.timeStamp}
                     id = {message.id}
                     liked = {message.liked}
