@@ -35,7 +35,7 @@ const App = () => {
     <div id="App">
       <header>
         <h1>OcelotChat</h1>
-        <h1>{numLiked} ❤️s</h1>
+        <h2>{numLiked} ❤️ s</h2>
       </header>
       <main>
         <ChatLog entries={chatData} onUpdateChatHeart={updateChatHeart} />
