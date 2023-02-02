@@ -13,7 +13,7 @@ const ChatEntry = (props) => {
       timeStamp: props.timeStamp,
       liked: !props.liked,
     };
-    props.onUpdate(updatedChatEntry);
+    props.onUpdateChatEntry(updatedChatEntry);
   };
 
   const heartColor = props.liked ? '❤️' : '🤍';
@@ -36,7 +36,7 @@ ChatEntry.propTypes = {
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool,
-  onUpdate: PropTypes.func.isRequired
+  onUpdateChatEntry: PropTypes.func.isRequired
 };
 
 export default ChatEntry;
