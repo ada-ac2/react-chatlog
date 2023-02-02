@@ -8,6 +8,7 @@ const ChatLog = (props) => {
     return (
       //<li key={id}>
       <ChatEntry
+        key={id}
         id={entry.id}
         sender={entry.sender}
         body={entry.body}
