@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "colorName": "red",
+        "emoji": "🔴"
+    },
+    {
+        "id": 2,
+        "colorName": "orange",
+        "emoji": "🟠"
+    },
+    {
+        "id": 3,
+        "colorName": "yellow",
+        "emoji": "🟡"
+    },
+    {
+        "id": 4,
+        "colorName": "green",
+        "emoji": "🟢"
+    },
+    {
+        "id": 5,
+        "colorName": "blue",
+        "emoji": "🔵"
+    },
+    {
+        "id": 6,
+        "colorName": "purple",
+        "emoji": "🟣"
+    }
+]

@@ -22,6 +22,7 @@ describe('Wave 03: clicking like button and rendering App', () => {
     // Arrange
     const { container } = render(<App />)
     const buttons = container.querySelectorAll('button.like')
+    console.log(buttons)
     const firstButton = buttons[0]
     const lastButton = buttons[buttons.length - 1]
 
