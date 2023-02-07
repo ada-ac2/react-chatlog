@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 import './ChatLog.css'; 
 
-
 const ChatLog = ({entries, onUpdateChat}) => {
     const messages = entries.map((message, index) => {
         return(
