@@ -46,7 +46,7 @@
 }
 
 #App span {
-  display: inline-block
+  display: inline-block;
 }
 
 .red {
@@ -71,4 +71,20 @@
 
 .purple {
   color: purple
+}
+
+.numberOfLikes {
+  background-color: aliceblue;
+}
+
+.numberLikes {
+  color: black;
+}
+
+.vladimir_sub_header {
+  
+}
+
+.estragon_sub_header {
+
 }

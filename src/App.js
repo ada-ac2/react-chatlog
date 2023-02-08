@@ -1,16 +1,37 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
+import ChatLog from './components/ChatLog'; 
 import chatMessages from './data/messages.json';
 
 const App = () => {
+  const [chatEntries, setChatEntries] = useState(chatMessages);   
+  const [numberLikes, setNumberLikes] = useState(0);   
+
+  const updateChatEntry = (chatToUpdate) => {
+    const chats = chatEntries.map((entry) => {
+      if(entry.id === chatToUpdate.id){
+        setNumberLikes(chatToUpdate.liked ? numberLikes+1 : numberLikes-1) 
+        return chatToUpdate; 
+      }
+      return entry;
+    });
+    setChatEntries(chats);
+  }; 
+
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <div className='applicationTitle'>
+          <h1>Chat between <span className='green'>Vladimir</span> and <span className='blue'>Estragon</span> </h1>
+        </div>
+        <div className='numberOfLikes'>
+          <h1 className='numberLikes'>{numberLikes} ❤️s</h1>
+        </div>
       </header>
       <main>
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
+        <ChatLog entries = {chatEntries}
+          onUpdateChat = {updateChatEntry}
+        />
       </main>
     </div>
   );
